@@ -1,16 +1,31 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type {MarkdownInstance} from "astro";
+interface Frontmatter {
+    title: string;
+    date: string;
+}
+const allBlogs = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>("./blog/*.md", {eager: true}));
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+<ul>
+    {
+        allBlogs.map((blog) => {
+            return (
+                <li>
+                    <a class="flex justify-between px-2 text-xl hover:text-3xl transition-all ease-in-out " href={blog.url}>
+                        <span class="flex-1 truncate after:content-['.....................................................................']
+
+                        ">
+                            {blog.frontmatter.title}
+                        </span>
+                        <i class="text-gray-500/60">{blog.frontmatter.date}</i></a>
+                </li>
+
+            );
+        })
+    }
+</ul>
+</BaseLayout>

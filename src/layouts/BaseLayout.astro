@@ -1,0 +1,25 @@
+---
+import '../styles/global.css'
+import Header from '../components/Header.astro'
+import '@fontsource/ma-shan-zheng'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="mtobdvlb-blog" />
+    <meta name="mtobdvlb" content="blog" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>mtobdvlb</title>
+  </head>
+ <body class="">
+
+    <div class="min-w-screen min-h-screen flex justify-center py-10">
+        <div class="bg-amber-50 w-1/2 min-h-full rounded-xl p-2 shadow-2xl shadow-amber-100 mb-10">
+            <Header/>
+            <slot />
+        </div>
+    </div>
+ </body>
+</html>

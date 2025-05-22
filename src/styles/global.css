@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        font-family: 'Ma Shan Zheng', cursive;
+        @apply h-screen w-screen;
+    }
+    html {
+        @apply bg-slate-200;
+    }
+}
